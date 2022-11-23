@@ -37,13 +37,19 @@
         Timer: <b class="timer"></b>
     </p>
     
-    <form method="POST" class="add-word">
+    <form action="/check-word" method="POST" class="add-word">
         <p>Please submit your guess:</p>
         <input type="text" name="word" class="word" autofocus>
         <button>Submit</button>
     </form>
 
-    <p class="msg"></p>
+    <p class="msg">
+        <section class="messages">
+            {% for category, msg in get_flashed_messages(with_categories = true) %}
+            <p class="{{ category }}"> {{ msg }} </p>
+            {% endfor %}
+        </section>
+    </p>
 
     <ul class="list">
     </ul>
