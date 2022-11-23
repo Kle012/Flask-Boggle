@@ -13,6 +13,7 @@
   
   .msg {
     padding: 1em;
+    font-weight: bold;
 }
 
 .msg.ok {
@@ -21,10 +22,13 @@
 }
 
 .msg.err {
-    color: black;
+    color: white;
     background-color: red;
 }
 
-h1 {
-    color: red;
+.messages .error {
+    padding: 1em;
+    color: white;
+    font-weight: bold;
+    background-color: red; 
 }
