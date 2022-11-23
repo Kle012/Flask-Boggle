@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/boggle.css">
+    <title> HOME PAGE </title>
+</head>
+
+<body>
+
+    <h1>WELCOME TO THE BOGGLE GAME</h1>
+    
+<div id="boggle">
+    <table class="board">
+        <tbody>
+            {% for row in board %}
+            <tr>
+                {% for cell in board %}
+                <td> {{ cell }} </td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <p>
+        Number of guesses: <b>{{ guesses }}</b>
+        <br>
+        Highest score: <b>{{ highscore }}</b>
+    </p>
+
+    <p>
+        Score: <b class="score">0</b>
+        <br>
+        Timer: <b class="timer"></b>
+    </p>
+    
+    <form method="POST" class="add-word">
+        <p>Please submit your guess:</p>
+        <input type="text" name="word" class="word" autofocus>
+        <button>Submit</button>
+    </form>
+
+    <p class="msg"></p>
+
+    <ul class="list">
+    </ul>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="/static/boggle.js"></script>
+
+<script>
+    let game = new BoggleGame("boggle"); 
+</script>
+
+    
+</body>
+</html>
