@@ -2,7 +2,7 @@
     border: solid 1px black;
     font-family: monospace;
     font-weight: bold;
-    font-size: 200%;
+    font-size: 180%;
 }
   
   .board td {
@@ -26,9 +26,4 @@
     background-color: red;
 }
 
-.messages .error {
-    padding: 1em;
-    color: white;
-    font-weight: bold;
-    background-color: red; 
-}
+
