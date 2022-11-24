@@ -1,8 +1,33 @@
 class BoggleGame {
-    constructor(boardId) { 
+    constructor(boardId, secs = 60) { 
+        this.secs = secs;
+        this.displayTime();
+
         this.score = 0; 
         this.words = new Set(); 
         this.board = $("#" + boardId); 
+
+        // Every 1000msec, count down
+        this.timer = setInterval(this.countDown.bind(this), 1000); 
+
+        // Capture the return JSON result and show it on page
+        $(".add-word", this.board).on("submit", this.handleSubmit.bind(this));
+    }
+
+    displayTime() {
+        // Display timer
+        $(".timer", this.board).text(this.secs); 
+    }
+
+    async countDown() {
+        // Count down every second
+        this.secs -= 1;
+        this.displayTime();
+
+        if(this.secs === 0){
+            clearInterval(this.timer);
+            await this.gameEnd(); 
+        }
     }
 
     alertMsg(msg, cls) {
@@ -15,7 +40,7 @@ class BoggleGame {
 
     guessedWord(word) {
         // List of guessed words
-        $(".list", this.board).append($("<li>", { word })); 
+        $(".list", this.board).append($("<li>", { text: word })); 
     }
 
     displayScore() {
