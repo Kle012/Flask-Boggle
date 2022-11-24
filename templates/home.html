@@ -26,7 +26,7 @@
     </table>
 
     <p>
-        Number of guesses: <b>{{ guesses }}</b>
+        Number of plays: <b>{{ plays }}</b>
         <br>
         Highest score: <b>{{ highscore }}</b>
     </p>
@@ -37,30 +37,25 @@
         Timer: <b class="timer"></b>
     </p>
     
-    <form action="/check-word" method="POST" class="add-word">
+    <form method="POST" class="add-word">
         <p>Please submit your guess:</p>
         <input type="text" name="word" class="word" autofocus>
         <button>Submit</button>
     </form>
-
+    
     <p class="msg">
-        <section class="messages">
-            {% for category, msg in get_flashed_messages(with_categories = true) %}
-            <p class="{{ category }}"> {{ msg }} </p>
-            {% endfor %}
-        </section>
     </p>
 
     <ul class="list">
     </ul>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="http://unpkg.com/jquery"></script>
+<script src="http://unpkg.com/axios/dist/axios.js"></script>
 <script src="/static/boggle.js"></script>
 
 <script>
-    let game = new BoggleGame("boggle"); 
+    let game = new BoggleGame("boggle", 60); 
 </script>
 
     
