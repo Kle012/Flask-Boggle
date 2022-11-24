@@ -20,11 +20,11 @@ class FlaskTests(TestCase):
             self.assertIn("<h1>WELCOME TO THE BOGGLE GAME</h1>", html)
             self.assertIn("Score:", html)
             self.assertIn("Timer:", html)
-            self.assertIn("Number of guesses:", html)
+            self.assertIn("Number of plays:", html)
             self.assertIn("Highest score", html)
             self.assertIn("board", session)
             self.assertIsNone(session.get("hightscore"))
-            self.assertIsNone(session.get("guesses"))
+            self.assertIsNone(session.get("plays"))
     
     def test_valid(self):
         """Testing for validity of a word by setting session before request"""
